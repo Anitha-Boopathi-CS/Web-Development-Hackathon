@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quiz Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="quiz-container">
+    <section class="start-screen" id="startScreen">
+      <div class="icon">🎯</div>
+      <h1>Interactive Quiz</h1>
+      <p>Choose a category, test your knowledge, and track your best score.</p>
+      <div class="quiz-info">
+        <div class="info-box">📚 <span id="questionCountInfo">10 Questions</span></div>
+        <div class="info-box">⏱️ 600 Seconds</div>
+        <div class="info-box">🏆 Best: <span id="homeBestScore">0%</span></div>
+      </div>
+      <label class="category-label" for="categorySelect">Choose Category</label>
+      <select id="categorySelect">
+        <option value="">-- Select a category --</option>
+        <option value="web">Web Development</option>
+        <option value="html">HTML</option>
+        <option value="computer">Computer Basics</option>
+      </select>
+      <button class="start-btn" id="startBtn">Start Quiz</button>
+      <p class="hint" id="startHint" role="status">Select a category to begin.</p>
+    </section>
+
+    <section id="quizScreen" hidden>
+      <header class="header">
+        <h1>🧠 Quiz Time</h1>
+        <div class="timer">⏱️ <span id="timer">60</span>s</div>
+      </header>
+      <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="quiz-meta">
+        <span id="categoryName">Category</span>
+        <span id="questionNumber">Question 1 of 10</span>
+      </div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+      <div class="navigation">
+        <button class="prev-btn" id="prevBtn">⬅ Previous</button>
+        <button class="next-btn" id="nextBtn">Next ➡</button>
+        <button class="submit-btn" id="submitBtn">Submit ✓</button>
+      </div>
+      <p class="hint" id="answerHint" aria-live="polite"></p>
+    </section>
+
+    <section class="result" id="resultScreen" hidden>
+      <div class="result-icon">🏆</div>
+      <h2>Quiz Completed!</h2>
+      <div class="score" id="score">0 / 10</div>
+      <p class="message" id="message"></p>
+      <div class="summary-grid">
+        <div class="summary-card"><strong id="summaryTotal">0</strong><span>Total questions</span></div>
+        <div class="summary-card"><strong id="summaryAttempted">0</strong><span>Attempted</span></div>
+        <div class="summary-card"><strong id="summaryCorrect">0</strong><span>Correct</span></div>
+        <div class="summary-card"><strong id="summaryIncorrect">0</strong><span>Incorrect / unanswered</span></div>
+        <div class="summary-card"><strong id="summaryPercent">0%</strong><span>Percentage</span></div>
+        <div class="summary-card"><strong id="resultBest">0%</strong><span>Best in category</span></div>
+      </div>
+      <h3 class="review-heading">Answer Review</h3>
+      <div id="reviewList" class="review-list"></div>
+      <div class="result-actions">
+        <button class="restart-btn" id="restartBtn">🔄 Retry Category</button>
+        <button class="home-btn" id="anotherCategoryBtn">📚 Another Category</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
